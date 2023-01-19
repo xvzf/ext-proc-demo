@@ -36,10 +36,6 @@ func (s *healthServer) Watch(in *healthPb.HealthCheckRequest, srv healthPb.Healt
 
 func (s *server) Process(srv extProcPb.ExternalProcessor_ProcessServer) error {
 
-	log.Println(" ")
-	log.Println(" ")
-	log.Println("Started process:  -->  ")
-
 	ctx := srv.Context()
 
 	for {
@@ -60,10 +56,6 @@ func (s *server) Process(srv extProcPb.ExternalProcessor_ProcessServer) error {
 		if err != nil {
 			return status.Errorf(codes.Unknown, "cannot receive stream request: %v", err)
 		}
-
-		log.Println(" ")
-		log.Println(" ")
-		log.Println("Got stream:  -->  ")
 
 		// generate uuid
 		uuid := uuid.New().String()
