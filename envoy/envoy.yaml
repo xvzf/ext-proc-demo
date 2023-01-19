@@ -53,9 +53,9 @@ static_resources:
               async_mode: false
               processing_mode:
                 request_header_mode: "SEND"
-                response_header_mode: "SEND"
-                request_body_mode: "NONE"
-                response_body_mode: "NONE"
+                response_header_mode: "SKIP"
+                request_body_mode: "SKIP"
+                response_body_mode: "SKIP"
                 request_trailer_mode: "SKIP"
                 response_trailer_mode: "SKIP"
               grpc_service:
@@ -78,7 +78,7 @@ static_resources:
                 address:
                   socket_address:
                     address: ext_proc_demo_service
-                    port_value: 8000
+                    port_value: 80
   - name: ext-proc
     connect_timeout: 5s
     type: strict_dns
